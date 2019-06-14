@@ -2,24 +2,30 @@ class TemperaturaController < ApplicationController
 require 'net/http'
 require 'json'
 
-    def buscar
+    def buscar_agora
 
-        render json: BuscaTemperatura.new.buscar(cidade_params[:cidade]), status: :ok
+        render json: BuscaTemperatura.new.buscar(cidade_params[:cidade]), status: :ok;
+    end
+
+    def buscar_horas
+
+        render json: BuscaHora.new.buscar(cidade_params[:cidade]), status: :ok;
+
+    end
+
+    def buscar_dias
+
+        render json: BuscarDias.new.buscar(cidade_params[:cidade], status: :ok);
+
     end
 
     private
 
-    def cep_params
+    def cidade_params
         params.permit(:cidade)
 
     end
 
-    def proximas_horas
-
-    end
-
-    def proximos_dias
-
-    end
+    
     
 end
