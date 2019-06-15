@@ -2,11 +2,11 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  get 'temperatura/buscar'
+  get 'temperatura/buscar_agora'
 
-  get 'horas/buscar'
+  get 'horas/buscar_horas'
 
-  get 'dias/buscar'
+  get 'dias/buscar_dias'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
