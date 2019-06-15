@@ -1,7 +1,7 @@
 class buscaHoras
 
-    require ’net/http’
-    require ‘json’ 
+    require 'net/http'
+    require 'json' 
 
     def buscar(cidade)
 
