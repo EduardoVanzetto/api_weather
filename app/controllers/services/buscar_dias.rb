@@ -1,4 +1,4 @@
-class buscaHoras
+class buscaDias
 
     require 'net/http'
     require 'json' 
