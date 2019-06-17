@@ -14,7 +14,7 @@ class TemperaturaController < ApplicationController
 
     def buscar_dias
 
-        render json: BuscaDias.new.buscar_dias(cidade_params[:cidade], status: :ok)
+        render json: BuscaDias.new.buscar_dias(cidade_params[:cidade]), status: :ok
 
     end
 
