@@ -10,17 +10,19 @@ class BuscaTemperatura
         retorno = JSON.parse(Net::HTTP.get(URI(url)))
 
         
-        novoJson = {"temperatura": retorno["main"]["temp"],
-                    "pressao": retorno["main"]["pressure"],
-                    "umidade": retorno["main"]["humidity"],
-                    "tempmax": retorno["main"]["temp_max"],
-                    "tempmin": retorno["main"]["temp_min"],
-                    "velocidadeVento": retorno["wind"]["speed"],
-                    "alvorada": Time.at(retorno["sys"]["sunrise"]),
-                    "crepusculo": Time.at(retorno["sys"]["sunset"])
+        temp = {"Data": Time.at(retorno["dt"]),
+                    "Clima": retorno["weather"][0]["main"],
+                    "Descrição": retorno["weather"][0]["description"],
+                    "Temperatura": retorno["main"]["temp"],
+                    "Pressao": retorno["main"]["pressure"],
+                    "Umidade": retorno["main"]["humidity"],
+                    "Temperatura_Maxima": retorno["main"]["temp_max"],
+                    "Temperatura_Minima": retorno["main"]["temp_min"],
+                    "Velocidade_Vento": retorno["wind"]["speed"],
+                    "Alvorada": Time.at(retorno["sys"]["sunrise"]),
+                    "Crepusculo": Time.at(retorno["sys"]["sunset"])
                 }
-
-
+                
         end
 
 end
