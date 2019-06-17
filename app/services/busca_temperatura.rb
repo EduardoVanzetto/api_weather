@@ -1,6 +1,7 @@
 class BuscaTemperatura
     require 'net/http'
     require 'json' 
+    require 'time'
 
     def buscar_agora(cidade)
         @cidade = cidade

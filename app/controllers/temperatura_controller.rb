@@ -2,6 +2,7 @@ class TemperaturaController < ApplicationController
 require 'net/http'
 require 'json'
 
+
     def buscar_agora
 
         render json: BuscaTemperatura.new.buscar_agora(cidade_params[:cidade]), status: :ok;
