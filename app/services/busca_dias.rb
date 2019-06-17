@@ -1,9 +1,11 @@
-class buscaDias
+class BuscaDias
 
     require 'net/http'
     require 'json' 
+    require 'time'
 
     def buscar_dias(cidade)
+        @cidade = cidade
 
         url = "http://api.openweathermap.org/data/2.5/forecast?q=#{cidade},BR&APPID=a142bbf4dcd20f54dda4e8dc3b6fa3fe"
         retorno = JSON.parse(Net::HTTP.get(URI(url)))
@@ -11,7 +13,7 @@ class buscaDias
 
         result = []
 
-        retorno["list"].each do [horario]
+        retorno["list"].each do |horario|
             result << {Hora: Time.at(horario["dt"]),
             Clima: horario["clouds"]["all"],
             Descrição: horario["weather"][0]["description"],
